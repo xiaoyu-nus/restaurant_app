@@ -9,7 +9,11 @@ class CreateUser extends Component {
   render() {
     const { handleSignIn, onChangeUserName } = this.props;
     return (
-      <form onSubmit={this.onSubmit}>
+      <form
+        onKeyPress={(e) => {
+          e.key === "Enter" && e.preventDefault();
+        }}
+      >
         <div className="form-group">
           <label>Enter Your Name</label>
           <input
@@ -31,9 +35,6 @@ class CreateUser extends Component {
             className="btn btn-primary"
             data-dismiss="modal"
             onClick={handleSignIn}
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
           >
             Submit
           </button>
