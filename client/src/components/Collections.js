@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const userPostURL = require("../keys").userUpdateURL;
 const listPostURL = require("../keys").listPostURL;
 
-class User extends Component {
+class Collections extends Component {
   state = {
     user: {},
     lists: [],
@@ -93,4 +93,4 @@ class User extends Component {
   }
 }
 
-export default User;
+export default Collections;

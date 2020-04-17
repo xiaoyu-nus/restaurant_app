@@ -102,7 +102,7 @@ class Search extends React.Component {
 
   render() {
     const { restaurants } = this.state;
-    const { user, lists } = this.props;
+    const { user } = this.props;
 
     const restRows = restaurants.map((rest, idx) => (
       <tr key={idx}>
@@ -111,6 +111,7 @@ class Search extends React.Component {
         <td>
           <img
             src={heartIcon}
+            alt=""
             className="btn btn-light"
             data-toggle="modal"
             data-target="#createNewRest"
@@ -142,12 +143,12 @@ class Search extends React.Component {
           <input
             type="text"
             className="form-control"
-            placeholder="Search term..."
+            placeholder="Search restaurant..."
             onChange={this.handleSearchChange}
           />
           <div className="input-group-append">
             <span className="input-group-text" id="basic-addon2">
-              <img src={searchIcon} className="m-2" />
+              <img src={searchIcon} alt="" />
             </span>
           </div>
         </div>

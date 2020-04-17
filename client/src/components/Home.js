@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import React, { Component } from "react";
 import Search from "./Search";
 import Navbar from "./Navbar";
-import User from "./User";
+import Collections from "./Collections";
 import FavList from "./FavList";
 
 import axios from "axios";
@@ -57,7 +57,6 @@ export class Home extends Component {
   };
 
   render() {
-    const { restaurants } = this.state;
     return (
       <Router>
         <div>
@@ -71,7 +70,7 @@ export class Home extends Component {
             path="/collection"
             exact
             render={(props) => (
-              <User
+              <Collections
                 user={this.state.user}
                 lists={this.state.lists}
                 handleSelectCollection={this.handleSelectCollection}

@@ -76,6 +76,7 @@ class FavList extends React.Component {
         <td>
           <img
             src={deleteIcon}
+            alt=""
             className="btn btn-light"
             data-toggle="modal"
             data-target="#deleteRestaurant"

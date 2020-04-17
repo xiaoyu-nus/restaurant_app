@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
-
-const listURL = require("../keys").listGetURL;
 
 class AddRestaurant extends Component {
   state = {

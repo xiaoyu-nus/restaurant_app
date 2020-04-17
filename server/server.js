@@ -32,17 +32,12 @@ mongoose
   .then(() => console.log("mongodb connected"))
   .catch((err) => console.log(err));
 
-// function find(name, query, cb) {
-//   mongoose.connection.db.collection(name, function (err, collection) {
-//     collection.find(query).toArray(cb);
-//   });
-// }
+app.use("/api/restaurant", restRouter);
+app.use("/api/user", userRouter);
 
-app.use("/restaurant", restRouter);
-app.use("/user", userRouter);
+app.use("/api/list", listRouter);
 
-app.use("/list", listRouter);
-
-const port = process.env.PORT || 5000;
+const port =
+  process.env.NODE_ENV === "production" ? process.env.PORT || 80 : 5000;
 
 app.listen(port, () => `Server running on port ${port}`);
