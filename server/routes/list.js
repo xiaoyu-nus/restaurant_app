@@ -7,7 +7,7 @@ const List = require("../models/List");
 // @route GET list
 // @desc Get All Items
 // @access Public
-router.get("/", (req, res) => {
+router.get("", (req, res) => {
   List.find()
     .sort({ name: 1 })
     .then((list) => res.json(list))

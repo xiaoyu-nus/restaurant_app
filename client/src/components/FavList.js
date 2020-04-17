@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Heartbeat from "react-heartbeat";
 import deleteIcon from "../deleteIcon.svg";
 import DeleteRestModal from "./DeleteRestModal";
 const listGetURL = require("../keys").listGetURL;
@@ -13,6 +14,10 @@ class FavList extends React.Component {
   };
 
   componentDidMount() {
+    return this.refresh;
+  }
+
+  refresh = () => {
     const { user, list } = this.props;
     axios.get(listGetURL).then((res) => {
       if (res.data.length > 0) {
@@ -24,7 +29,7 @@ class FavList extends React.Component {
         }
       }
     });
-  }
+  };
 
   onSelectDelete = (rest) => {
     this.setState({ deleteRest: rest });
@@ -68,6 +73,9 @@ class FavList extends React.Component {
 
   render() {
     const { listName, restaurants } = this.state;
+    const heartbeat = (
+      <Heartbeat heartbeatFunction={this.refresh} heartbeatInterval={1000} />
+    );
 
     const restRows = restaurants.map((rest, idx) => (
       <tr key={idx}>
@@ -102,6 +110,7 @@ class FavList extends React.Component {
         <DeleteRestModal
           handleDelete={() => this.handleDelete(this.state.deleteRest)}
         />
+        {heartbeat}
       </div>
     );
   }

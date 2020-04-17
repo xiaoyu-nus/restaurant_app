@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import React, { Component } from "react";
+import Heartbeat from "react-heartbeat";
 import Search from "./Search";
 import Navbar from "./Navbar";
 import Collections from "./Collections";
@@ -27,6 +28,17 @@ export class Home extends Component {
 
   handleSelectCollection = (list) => {
     this.setState({ selectedList: list });
+  };
+
+  refresh = () => {
+    axios.get(getURL).then((res) => {
+      const users = res.data.filter((u) => u._id === this.state.user._id);
+      if (users.length > 0) {
+        this.setState({
+          lists: users[0].lists,
+        });
+      }
+    });
   };
 
   handleSignIn = (e) => {
@@ -57,6 +69,10 @@ export class Home extends Component {
   };
 
   render() {
+    const heartbeat = (
+      <Heartbeat heartbeatFunction={this.refresh} heartbeatInterval={1000} />
+    );
+
     return (
       <Router>
         <div>
@@ -67,7 +83,7 @@ export class Home extends Component {
           />
           <br />
           <Route
-            path="/collection"
+            path="/collections"
             exact
             render={(props) => (
               <Collections
@@ -100,6 +116,7 @@ export class Home extends Component {
             )}
           />
         </div>
+        {heartbeat}
       </Router>
     );
   }

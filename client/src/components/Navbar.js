@@ -38,7 +38,7 @@ class Navbar extends Component {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to={`/collection`}>
+              <NavLink to={`/collections`}>
                 <span className="nav-link" href="#">
                   My Collections
                 </span>

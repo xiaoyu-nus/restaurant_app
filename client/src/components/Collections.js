@@ -55,7 +55,7 @@ class Collections extends Component {
         key={idx}
         onChange={this.props.onChange}
       >
-        <NavLink to={`/shop/${user.userName}/${list}`}>
+        <NavLink to={`/${user.userName}/${list}`}>
           <button
             type="button"
             className="btn btn-outline-dark"

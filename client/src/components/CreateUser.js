@@ -27,10 +27,13 @@ class CreateUser extends Component {
             Cancel
           </button>
           <button
-            type="submit"
+            type="button"
             className="btn btn-primary"
             data-dismiss="modal"
             onClick={handleSignIn}
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}
           >
             Submit
           </button>
