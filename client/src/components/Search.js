@@ -37,7 +37,6 @@ class Search extends React.Component {
       .get(listGetURL)
       .then((res) => {
         if (res.data.length > 0) {
-          console.log(res.data);
           const lists = res.data.filter(
             (l) => l.listName === selectedList && l.userID === user._id
           );
