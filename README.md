@@ -23,16 +23,20 @@ By default, client will run on port 3000 and server on port 5000.
 
 ### Features implemented
 
-- save restaurants into named collections \
-- see updates to the collections in real-time\
-- filter for restaurants open by date time string\
-- filter for restaurants by name \
-- remove restaurants from collections\
+- save restaurants into named collections
+- see updates to the collections in real-time
+- filter for restaurants open by date time string
+- filter for restaurants by name
+- remove restaurants from collections
 
 ### Limitations
 
-I did not implement the email sharing feature due to time constarints. However, by entering a shared user name, users can edit the collections together. The filter for restaurants by time is also not ideal due to lack of the date time string processing.
+I did not implement the email sharing feature due to time constarints. However, by entering a shared user name, users can edit the collections together. The filter for restaurants by time is also not ideal due to the lack of date time string processing.
 
 Input validation and user authentification are not implemented.
 
-[NOTE] There is no local storage so login data will be lost if page is refreshed.
+---
+
+**NOTE** There is no local storage so login data will be lost if page is refreshed.
+
+---
